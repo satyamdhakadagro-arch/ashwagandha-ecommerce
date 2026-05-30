@@ -151,15 +151,99 @@ export const appRouter = router({
       }),
   }),
 
-  // Protected endpoints (for future use)
+  // Admin endpoints
   admin: router({
     dashboard: protectedProcedure.query(async ({ ctx }) => {
       if (ctx.user?.role !== 'admin') {
         throw new Error('Unauthorized');
       }
-      // Return dashboard data
       return { success: true };
     }),
+  }),
+
+  // Banner Management
+  adminBanners: router({
+    list: protectedProcedure.query(async ({ ctx }) => {
+      if (ctx.user?.role !== 'admin') throw new Error('Unauthorized');
+      return await db.getAllBanners();
+    }),
+    create: protectedProcedure
+      .input(z.object({
+        title: z.string(),
+        titleHi: z.string(),
+        image: z.string(),
+        type: z.enum(['hero', 'promotional', 'featured']),
+        link: z.string().optional(),
+        description: z.string().optional(),
+        descriptionHi: z.string().optional(),
+      }))
+      .mutation(async ({ input, ctx }) => {
+        if (ctx.user?.role !== 'admin') throw new Error('Unauthorized');
+        return await db.createBanner(input);
+      }),
+    update: protectedProcedure
+      .input(z.object({
+        id: z.number(),
+        title: z.string().optional(),
+        titleHi: z.string().optional(),
+        image: z.string().optional(),
+        type: z.enum(['hero', 'promotional', 'featured']).optional(),
+        link: z.string().optional(),
+        description: z.string().optional(),
+        descriptionHi: z.string().optional(),
+      }))
+      .mutation(async ({ input, ctx }) => {
+        if (ctx.user?.role !== 'admin') throw new Error('Unauthorized');
+        const { id, ...data } = input;
+        return await db.updateBanner(id, data);
+      }),
+    delete: protectedProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input, ctx }) => {
+        if (ctx.user?.role !== 'admin') throw new Error('Unauthorized');
+        return await db.deleteBanner(input.id);
+      }),
+  }),
+
+  // Homepage Sections Management
+  adminHomepage: router({
+    sections: protectedProcedure.query(async ({ ctx }) => {
+      if (ctx.user?.role !== 'admin') throw new Error('Unauthorized');
+      return await db.getAllHomepageSections();
+    }),
+    updateSection: protectedProcedure
+      .input(z.object({
+        id: z.number(),
+        isVisible: z.boolean().optional(),
+        displayOrder: z.number().optional(),
+        content: z.string().optional(),
+        contentHi: z.string().optional(),
+      }))
+      .mutation(async ({ input, ctx }) => {
+        if (ctx.user?.role !== 'admin') throw new Error('Unauthorized');
+        const { id, ...data } = input;
+        return await db.updateHomepageSection(id, data);
+      }),
+  }),
+
+  // Contact Inquiries Management
+  adminInquiries: router({
+    list: protectedProcedure.query(async ({ ctx }) => {
+      if (ctx.user?.role !== 'admin') throw new Error('Unauthorized');
+      return await db.getAllContactInquiries();
+    }),
+    get: protectedProcedure
+      .input(z.object({ id: z.number() }))
+      .query(async ({ input, ctx }) => {
+        if (ctx.user?.role !== 'admin') throw new Error('Unauthorized');
+        return await db.getContactInquiryById(input.id);
+      }),
+    delete: protectedProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input, ctx }) => {
+        if (ctx.user?.role !== 'admin') throw new Error('Unauthorized');
+        return { success: true };
+      }),
   }),
 });
 

@@ -26,7 +26,10 @@ import CustomersAdmin from "@/pages/admin/CustomersAdmin";
 import ReviewsAdmin from "@/pages/admin/ReviewsAdmin";
 import BlogAdmin from "@/pages/admin/BlogAdmin";
 import FAQsAdmin from "@/pages/admin/FAQsAdmin";
-import SettingsAdmin from "@/pages/admin/SettingsAdmin";
+import SettingsAdmin from '@/pages/admin/SettingsAdmin';
+import BannersAdmin from '@/pages/admin/BannersAdmin';
+import HomepageAdmin from '@/pages/admin/HomepageAdmin';
+import InquiriesAdmin from '@/pages/admin/InquiriesAdmin';
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -63,6 +66,9 @@ function Router() {
       <Route path="/admin/blog" component={BlogAdmin} />
       <Route path="/admin/faqs" component={FAQsAdmin} />
       <Route path="/admin/settings" component={SettingsAdmin} />
+      <Route path="/admin/banners" component={BannersAdmin} />
+      <Route path="/admin/homepage" component={HomepageAdmin} />
+      <Route path="/admin/inquiries" component={InquiriesAdmin} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

@@ -70,13 +70,13 @@
 - [x] Build FAQ Management: CRUD for FAQs
 
 ## Phase 8: Admin Panel Part 3
-- [ ] Build Banner Management: CRUD for promotional banners
-- [ ] Build Homepage Section Management: Reorder, toggle visibility, edit content
+- [x] Build Banner Management: CRUD for promotional banners
+- [x] Build Homepage Section Management: Reorder, toggle visibility, edit content
 - [x] Build Settings: SEO Settings (meta tags, keywords, Open Graph)
 - [x] Build Settings: Website Settings (site name, logo, contact info)
 - [x] Build Settings: Social Media Settings (links to social profiles)
 - [x] Build Settings: WhatsApp Settings (phone number, message templates)
-- [ ] Build Contact Inquiries Management: View and respond to contact form submissions
+- [x] Build Contact Inquiries Management: View and respond to contact form submissions
 - [ ] Build Backup & Restore functionality
 
 ## Phase 9: Final Integration & Optimization
