@@ -248,4 +248,6 @@ export const appRouter = router({
   }),
 });
 
+// Cloudinary storage router will be added after fixing db functions
+
 export type AppRouter = typeof appRouter;
