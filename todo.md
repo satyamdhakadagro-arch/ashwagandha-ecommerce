@@ -16,21 +16,21 @@
 
 ## Phase 3: Home Page (Fully Editable)
 - [x] Build Hero Banner Slider component (basic)
-- [x] Build Promotional Offers Banner section (editable)
+- [ ] Build Promotional Offers Banner section (editable)
 - [x] Build Featured Products section
 - [x] Build Best Selling Products section
 - [x] Build Ashwagandha Benefits section
 - [x] Build Why Choose Us section
 - [x] Build Customer Reviews Slider (structure)
-- [x] Build Video Section (editable)
+- [ ] Build Video Section (editable)
 - [x] Build Blog Preview section
 - [x] Build FAQ Preview section
-- [x] Build Contact CTA section (editable)
-- [x] Build WhatsApp Order section (editable)
+- [ ] Build Contact CTA section (editable)
+- [ ] Build WhatsApp Order section (editable)
 - [x] Build Newsletter Subscription section
-- [x] Build Social Media Feed section (editable)
+- [ ] Build Social Media Feed section (editable)
 - [x] Build Footer with editable content
-- [x] Implement section reordering and visibility toggle from admin
+- [ ] Implement section reordering and visibility toggle from admin
 
 ## Phase 4: Shop & Product Pages
 - [x] Build Shop page with product grid
@@ -41,7 +41,7 @@
 - [x] Build product reviews section on details page
 - [x] Build related products display
 - [x] Implement WhatsApp Order button on product pages
-- [x] Build Cart functionality (if needed)
+- [ ] Build Cart functionality (if needed)
 - [x] Implement product stock management display
 
 ## Phase 5: Static Pages
@@ -80,7 +80,7 @@
 - [x] Build Backup & Restore functionality (basic structure)
 
 ## Phase 9: Final Integration & Optimization
-- [x] Implement Google Analytics integration
+- [ ] Implement Google Analytics integration
 - [x] Implement Google Maps integration on Contact page (structure)
 - [x] Implement SEO optimization (meta tags, structured data)
 - [x] Test all features across browsers and devices
