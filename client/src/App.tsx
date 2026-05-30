@@ -30,6 +30,8 @@ import SettingsAdmin from '@/pages/admin/SettingsAdmin';
 import BannersAdmin from '@/pages/admin/BannersAdmin';
 import HomepageAdmin from '@/pages/admin/HomepageAdmin';
 import InquiriesAdmin from '@/pages/admin/InquiriesAdmin';
+import BlogPost from '@/pages/BlogPost';
+import MediaLibraryAdmin from '@/pages/admin/MediaLibraryAdmin';
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -69,6 +71,8 @@ function Router() {
       <Route path="/admin/banners" component={BannersAdmin} />
       <Route path="/admin/homepage" component={HomepageAdmin} />
       <Route path="/admin/inquiries" component={InquiriesAdmin} />
+      <Route path="/admin/media" component={MediaLibraryAdmin} />
+      <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

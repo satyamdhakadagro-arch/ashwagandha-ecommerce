@@ -25,6 +25,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
     { href: '/admin/banners', label: 'Banners', icon: Image },
     { href: '/admin/homepage', label: 'Homepage Sections', icon: Home },
     { href: '/admin/inquiries', label: 'Contact Inquiries', icon: Mail },
+    { href: '/admin/media', label: 'Media Library', icon: Image },
     { href: '/admin/settings', label: 'Settings', icon: Settings },
   ];
 
