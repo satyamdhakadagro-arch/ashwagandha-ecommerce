@@ -165,7 +165,7 @@ export const appRouter = router({
   adminBanners: router({
     list: protectedProcedure.query(async ({ ctx }) => {
       if (ctx.user?.role !== 'admin') throw new Error('Unauthorized');
-      return await db.getAllBanners();
+      return await db.getBanners();
     }),
     create: protectedProcedure
       .input(z.object({
@@ -209,7 +209,7 @@ export const appRouter = router({
   adminHomepage: router({
     sections: protectedProcedure.query(async ({ ctx }) => {
       if (ctx.user?.role !== 'admin') throw new Error('Unauthorized');
-      return await db.getAllHomepageSections();
+      return await db.getHomepageSections();
     }),
     updateSection: protectedProcedure
       .input(z.object({
@@ -230,13 +230,14 @@ export const appRouter = router({
   adminInquiries: router({
     list: protectedProcedure.query(async ({ ctx }) => {
       if (ctx.user?.role !== 'admin') throw new Error('Unauthorized');
-      return await db.getAllContactInquiries();
+      return await db.getContactInquiries();
     }),
     get: protectedProcedure
       .input(z.object({ id: z.number() }))
       .query(async ({ input, ctx }) => {
         if (ctx.user?.role !== 'admin') throw new Error('Unauthorized');
-        return await db.getContactInquiryById(input.id);
+        const inquiries = await db.getContactInquiries();
+        return inquiries.find(i => i.id === input.id);
       }),
     delete: protectedProcedure
       .input(z.object({ id: z.number() }))
