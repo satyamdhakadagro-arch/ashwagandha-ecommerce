@@ -1,5 +1,5 @@
 import { Link } from 'wouter';
-import { Facebook, Instagram, Youtube, MessageCircle, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Instagram, Youtube, MessageCircle, Mail, Phone, MapPin, Settings } from 'lucide-react';
 
 export function Footer() {
 
@@ -110,7 +110,13 @@ export function Footer() {
         {/* Bottom */}
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
           <p>© 2024 Ashwagandha Premium. All rights reserved.</p>
-          <p>Made with ❤️ for wellness</p>
+          <div className="flex items-center gap-4">
+            <p>Made with ❤️ for wellness</p>
+            <Link href="/admin" className="inline-flex items-center gap-1 px-3 py-1.5 rounded-md bg-orange-500 text-white hover:bg-orange-600 transition-colors text-xs font-medium">
+              <Settings className="w-3.5 h-3.5" />
+              Admin
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
