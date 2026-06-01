@@ -160,7 +160,7 @@ export default function Shop() {
                           <span className="text-xs text-muted-foreground ml-2">(42 reviews)</span>
                         </div>
                         <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                          {product.shortDescription}
+                          {product.description}
                         </p>
                         <div className="flex justify-between items-center">
                           <span className="text-2xl font-bold text-amber-600">₹{product.price}</span>

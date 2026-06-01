@@ -61,7 +61,7 @@ export default function Home() {
                   <div className="p-4">
                     <h3 className="font-bold text-lg mb-2">{product.name}</h3>
                     <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                      {product.shortDescription}
+                      {product.description}
                     </p>
                     <div className="flex justify-between items-center">
                       <span className="text-2xl font-bold text-amber-600">₹{product.price}</span>

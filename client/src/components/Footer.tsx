@@ -112,10 +112,10 @@ export function Footer() {
           <p>© 2024 Ashwagandha Premium. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <p>Made with ❤️ for wellness</p>
-            <Link href="/admin" className="inline-flex items-center gap-1 px-3 py-1.5 rounded-md bg-orange-500 text-white hover:bg-orange-600 transition-colors text-xs font-medium">
+            <a href="/admin" className="inline-flex items-center gap-1 px-3 py-1.5 rounded-md bg-orange-500 text-white hover:bg-orange-600 transition-colors text-xs font-medium">
               <Settings className="w-3.5 h-3.5" />
               Admin
-            </Link>
+            </a>
           </div>
         </div>
       </div>

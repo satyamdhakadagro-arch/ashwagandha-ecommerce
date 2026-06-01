@@ -194,7 +194,7 @@ export default function ProductDetails() {
                   <Card key={review.id} className="p-4">
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <h4 className="font-bold">{review.customerName}</h4>
+                        <h4 className="font-bold">Customer Review</h4>
                         <div className="flex items-center gap-1 mt-1">
                           {[...Array(review.rating || 5)].map((_, i) => (
                             <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />

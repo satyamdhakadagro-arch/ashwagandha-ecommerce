@@ -124,9 +124,9 @@ export const appRouter = router({
 
   newsletter: router({
     subscribe: publicProcedure
-      .input(z.object({ email: z.string().email(), name: z.string().optional() }))
+      .input(z.object({ email: z.string().email() }))
       .mutation(async ({ input }) => {
-        return await db.subscribeNewsletter(input.email, input.name);
+        return await db.subscribeNewsletter(input.email);
       }),
   }),
 
@@ -134,15 +134,12 @@ export const appRouter = router({
     create: publicProcedure
       .input(
         z.object({
-          customerName: z.string(),
-          customerEmail: z.string().email().optional(),
-          customerPhone: z.string(),
+          customerId: z.number(),
+          totalAmount: z.string(),
+          status: z.enum(['pending', 'processing', 'shipped', 'delivered', 'cancelled']).optional(),
+          paymentStatus: z.enum(['pending', 'completed', 'failed']).optional(),
           shippingAddress: z.string().optional(),
-          items: z.array(z.any()),
-          subtotal: z.string(),
-          total: z.string(),
-          tax: z.string().optional(),
-          shipping: z.string().optional(),
+          notes: z.string().optional(),
         })
       )
       .mutation(async ({ input }) => {

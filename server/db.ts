@@ -244,11 +244,11 @@ export async function createContactInquiry(data: {
 }
 
 // Newsletter
-export async function subscribeNewsletter(email: string, name?: string) {
+export async function subscribeNewsletter(email: string) {
   const db = await getDb();
   if (!db) return null;
   try {
-    const result = await db.insert(newsletterSubscriptions).values({ email, name });
+    const result = await db.insert(newsletterSubscriptions).values({ email });
     return result;
   } catch (error) {
     // Email might already exist
@@ -265,16 +265,13 @@ export async function getOrders(limit?: number) {
 }
 
 export async function createOrder(data: {
+  customerId: number;
   orderNumber: string;
-  customerName: string;
-  customerEmail?: string;
-  customerPhone: string;
+  totalAmount: string;
+  status?: 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled';
+  paymentStatus?: 'pending' | 'completed' | 'failed';
   shippingAddress?: string;
-  items: any;
-  subtotal: string;
-  total: string;
-  tax?: string;
-  shipping?: string;
+  notes?: string;
 }) {
   const db = await getDb();
   if (!db) return null;
@@ -467,7 +464,7 @@ export async function deleteReview(id: number) {
 }
 
 // Order Management
-export async function updateOrderStatus(id: number, status: 'pending' | 'confirmed' | 'shipped' | 'delivered' | 'cancelled') {
+export async function updateOrderStatus(id: number, status: 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled') {
   const db = await getDb();
   if (!db) return null;
   const result = await db.update(orders).set({ status }).where(eq(orders.id, id));
@@ -555,8 +552,6 @@ export async function createBanner(data: {
   image: string;
   type: 'hero' | 'promotional' | 'featured';
   link?: string;
-  description?: string;
-  descriptionHi?: string;
 }) {
   const db = await getDb();
   if (!db) return null;
@@ -566,8 +561,6 @@ export async function createBanner(data: {
     image: data.image,
     type: data.type,
     link: data.link,
-    description: data.description,
-    descriptionHi: data.descriptionHi,
     displayOrder: 0,
   });
   return result;
