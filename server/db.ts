@@ -339,8 +339,18 @@ export async function deleteCategory(id: number) {
 export async function updateProduct(id: number, data: any) {
   const db = await getDb();
   if (!db) return null;
-  const result = await db.update(products).set(data).where(eq(products.id, id));
-  return result;
+  try {
+    // Filter out undefined values
+    const updateData = Object.fromEntries(
+      Object.entries(data).filter(([, v]) => v !== undefined)
+    );
+    const result = await db.update(products).set(updateData).where(eq(products.id, id));
+    // Return the updated product
+    return await getProductById(id);
+  } catch (error) {
+    console.error('Error updating product:', error);
+    return null;
+  }
 }
 
 export async function getProductById(id: number) {

@@ -32,6 +32,7 @@ import HomepageAdmin from '@/pages/admin/HomepageAdmin';
 import InquiriesAdmin from '@/pages/admin/InquiriesAdmin';
 import BlogPost from '@/pages/BlogPost';
 import MediaLibraryAdmin from '@/pages/admin/MediaLibraryAdmin';
+import AdminLogin from '@/pages/AdminLogin';
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -59,6 +60,7 @@ function Router() {
       <Route path="/terms" component={Terms} />
       <Route path="/shipping" component={ShippingPolicy} />
       <Route path="/refund" component={RefundPolicy} />
+      <Route path="/admin-login" component={AdminLogin} />
       <Route path="/admin" component={AdminDashboard} />
       <Route path="/admin/products" component={ProductsAdmin} />
       <Route path="/admin/categories" component={CategoriesAdmin} />

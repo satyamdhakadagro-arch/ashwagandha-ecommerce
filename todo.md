@@ -97,3 +97,10 @@
 - [x] Mobile-responsive design across all pages
 - [x] Accessibility compliance (WCAG)
 - [x] Error handling and user feedback
+
+
+## Current Bugs & Fixes (Priority)
+- [ ] Make admin button smaller and less prominent (don't highlight)
+- [ ] Add password authentication for admin panel access
+- [ ] Fix product update functionality from admin panel
+- [ ] Ensure admin changes reflect on main site immediately
