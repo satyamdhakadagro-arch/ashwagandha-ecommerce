@@ -114,21 +114,31 @@ export async function getProducts(limit?: number) {
 export async function getFeaturedProducts(limit: number = 6) {
   const db = await getDb();
   if (!db) return [];
-  return await db
-    .select()
-    .from(products)
-    .where(and(eq(products.isActive, true), eq(products.isFeatured, true)))
-    .limit(limit);
+  try {
+    return await db
+      .select()
+      .from(products)
+      .where(and(eq(products.isActive, true), eq(products.isFeatured, true)))
+      .limit(limit);
+  } catch (error) {
+    console.error('Error fetching featured products:', error);
+    return [];
+  }
 }
 
 export async function getBestSellerProducts(limit: number = 6) {
   const db = await getDb();
   if (!db) return [];
-  return await db
-    .select()
-    .from(products)
-    .where(and(eq(products.isActive, true), eq(products.isBestSeller, true)))
-    .limit(limit);
+  try {
+    return await db
+      .select()
+      .from(products)
+      .where(and(eq(products.isActive, true), eq(products.isBestSeller, true)))
+      .limit(limit);
+  } catch (error) {
+    console.error('Error fetching best seller products:', error);
+    return [];
+  }
 }
 
 export async function getProductBySlug(slug: string) {

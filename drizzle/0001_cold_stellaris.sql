@@ -1,0 +1,1 @@
+ALTER TABLE `customers` MODIFY COLUMN `totalSpent` decimal(10,2) NOT NULL DEFAULT '0';

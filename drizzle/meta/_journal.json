@@ -8,6 +8,13 @@
       "when": 1780274511031,
       "tag": "0000_nostalgic_gambit",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1780312539192,
+      "tag": "0001_cold_stellaris",
+      "breakpoints": true
     }
   ]
 }

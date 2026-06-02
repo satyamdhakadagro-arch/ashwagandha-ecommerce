@@ -100,7 +100,7 @@
 
 
 ## Current Bugs & Fixes (Priority)
-- [ ] Make admin button smaller and less prominent (don't highlight)
-- [ ] Add password authentication for admin panel access
-- [ ] Fix product update functionality from admin panel
-- [ ] Ensure admin changes reflect on main site immediately
+- [x] Make admin button smaller and less prominent (don't highlight)
+- [x] Add password authentication for admin panel access
+- [x] Fix product update functionality from admin panel
+- [x] Ensure admin changes reflect on main site immediately
